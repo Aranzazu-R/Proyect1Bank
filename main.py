@@ -69,12 +69,8 @@ for u in Card.select():
 
 migue_pay = Card.select().where(Card.id == 1).get()
 
-try:
-    payment_sim = PaymentController.pay(card=migue_pay, amount=10_000, concept="Pago tarjeta",
-                                        payment_date=datetime(2023, 2, 23, 10, 10, 0))
-
-except UnboundLocalError:
-    print("Invalid transaction")
+payment_sim = PaymentController.pay(card=migue_pay, amount=10_000, concept="Pago tarjeta",
+                                    payment_date=datetime(2023, 2, 23, 10, 10, 0))
 
 print("Este es el pago a la cuenta:")
 for u in Payment.select():
